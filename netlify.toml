@@ -1,0 +1,32 @@
+[build]
+  # This is the directory that Netlify will use to build your site
+  base = "/"
+  publish = "public/"
+  command = "npm run build"
+
+# Basic redirect setup for SPA (Single Page Application) behavior
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Admin panel protection (password protected)
+[[redirects]]
+  from = "/admin/*"
+  to = "/admin/index.html"
+  status = 200
+  force = true
+
+# Settings for the Netlify Forms
+[context.production.environment]
+  # Enable Netlify Forms
+  NETLIFY_FORMS = "true"
+
+# Build environment variables
+[build.environment]
+  NODE_VERSION = "16"
+  NPM_VERSION = "8"
+
+# Netlify Functions configuration (if you add backend functionality later)
+[functions]
+  directory = "functions/"
