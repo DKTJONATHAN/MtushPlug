@@ -1,0 +1,7 @@
+{
+  "id": "prod-003",
+  "name": "Denim Jacket",
+  "price": 1500,
+  "image": "jacket.jpg",
+  "status": "available"
+}
