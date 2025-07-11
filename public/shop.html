@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop - Mtush Plug KE</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation (same as index.html) -->
+    <nav class="bg-white shadow-lg">
+        <!-- ... same nav as index.html ... -->
+    </nav>
+
+    <!-- Shop Header -->
+    <div class="bg-gray-100 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h1 class="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+                    Our Collection
+                </h1>
+                <p class="mt-4 max-w-2xl text-xl text-gray-500 mx-auto">
+                    Quality second-hand clothes at affordable prices
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Filter/Sort Bar -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+            <div class="mb-4 md:mb-0">
+                <span class="text-sm text-gray-700">Showing 24 of 124 products</span>
+            </div>
+            <div class="flex items-center space-x-4">
+                <div class="relative">
+                    <select class="appearance-none bg-white border border-gray-300 rounded-md pl-3 pr-8 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-green-500">
+                        <option>All Categories</option>
+                        <option>Men's Clothing</option>
+                        <option>Women's Clothing</option>
+                        <option>Kids</option>
+                        <option>Shoes</option>
+                    </select>
+                    <i class="fas fa-chevron-down absolute right-3 top-2.5 text-gray-400 text-xs"></i>
+                </div>
+                <div class="relative">
+                    <select class="appearance-none bg-white border border-gray-300 rounded-md pl-3 pr-8 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-green-500">
+                        <option>Sort by: Featured</option>
+                        <option>Price: Low to High</option>
+                        <option>Price: High to Low</option>
+                        <option>Newest Arrivals</option>
+                    </select>
+                    <i class="fas fa-chevron-down absolute right-3 top-2.5 text-gray-400 text-xs"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Product Grid -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12">
+        <div class="grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
+            <!-- Product 1 -->
+            <div class="group relative bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                <div class="w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-80">
+                    <img src="https://via.placeholder.com/300x400" alt="Product image" class="w-full h-full object-center object-cover">
+                    <div class="absolute top-2 right-2 bg-green-500 text-white text-xs font-bold px-2 py-1 rounded-full">
+                        New
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <div class="flex justify-between">
+                        <h3 class="text-sm text-gray-700">
+                            <a href="product.html">
+                                <span aria-hidden="true" class="absolute inset-0"></span>
+                                Designer Jeans
+                            </a>
+                        </h3>
+                        <p class="text-sm font-medium text-gray-900">KSh 1,200</p>
+                    </div>
+                    <p class="mt-1 text-sm text-gray-500">Size: 32</p>
+                    <div class="mt-2">
+                        <button class="w-full bg-green-600 text-white py-2 px-4 rounded-md hover:bg-green-700 text-sm">
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="group relative bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                <!-- ... similar structure as Product 1 ... -->
+            </div>
+
+            <!-- Products 3-8 would follow same pattern -->
+        </div>
+
+        <!-- Pagination -->
+        <div class="mt-12 flex justify-center">
+            <nav class="flex items-center space-x-2">
+                <a href="#" class="px-3 py-1 border border-gray-300 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-50">
+                    Previous
+                </a>
+                <a href="#" class="px-3 py-1 border border-gray-300 rounded-md text-sm font-medium text-white bg-green-600 hover:bg-green-700">
+                    1
+                </a>
+                <a href="#" class="px-3 py-1 border border-gray-300 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-50">
+                    2
+                </a>
+                <a href="#" class="px-3 py-1 border border-gray-300 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-50">
+                    3
+                </a>
+                <span class="px-3 py-1 text-sm text-gray-700">
+                    ...
+                </span>
+                <a href="#" class="px-3 py-1 border border-gray-300 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-50">
+                    8
+                </a>
+                <a href="#" class="px-3 py-1 border border-gray-300 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-50">
+                    Next
+                </a>
+            </nav>
+        </div>
+    </section>
+
+    <!-- Footer (same as index.html) -->
+    <footer class="bg-gray-800 text-white pt-12 pb-8">
+        <!-- ... same footer as index.html ... -->
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
