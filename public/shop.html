@@ -6,50 +6,129 @@
     <title>Shop - Mtush Plug KE</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Custom sun dress vector logo */
+        .logo-sundress {
+            width: 40px;
+            height: 40px;
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 10px;
+        }
+        
+        /* Product hover effect */
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        /* Badge styles */
+        .product-badge {
+            position: absolute;
+            top: 0.5rem;
+            right: 0.5rem;
+            padding: 0.25rem 0.5rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: bold;
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            light: '#FF9A3C',
+                            DEFAULT: '#FF7A00',
+                            dark: '#E65C00',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
 </head>
 <body class="bg-gray-50">
-    <!-- Navigation (same as index.html) -->
-    <nav class="bg-white shadow-lg">
-        <!-- ... same nav as index.html ... -->
+    <!-- Navigation -->
+    <nav class="bg-black shadow-lg sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex justify-between">
+                <div class="flex space-x-7">
+                    <div>
+                        <a href="index.html" class="flex items-center py-4 px-2">
+                            <svg class="logo-sundress" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M50 10 L60 30 L70 20 L80 40 L70 60 L60 70 L50 90 L40 70 L30 60 L20 40 L30 20 L40 30 Z" 
+                                      fill="#FF7A00" stroke="white" stroke-width="2"/>
+                                <circle cx="50" cy="30" r="5" fill="white"/>
+                                <circle cx="35" cy="45" r="5" fill="white"/>
+                                <circle cx="65" cy="45" r="5" fill="white"/>
+                            </svg>
+                            <span class="font-semibold text-white text-lg">Mtush Plug KE</span>
+                        </a>
+                    </div>
+                    <div class="hidden md:flex items-center space-x-1">
+                        <a href="index.html" class="py-4 px-2 text-gray-300 font-semibold hover:text-primary-light transition duration-300">Home</a>
+                        <a href="shop.html" class="py-4 px-2 text-primary-light border-b-4 border-primary-light font-semibold">Shop</a>
+                        <a href="about.html" class="py-4 px-2 text-gray-300 font-semibold hover:text-primary-light transition duration-300">About</a>
+                        <a href="contact.html" class="py-4 px-2 text-gray-300 font-semibold hover:text-primary-light transition duration-300">Contact</a>
+                    </div>
+                </div>
+                <div class="hidden md:flex items-center space-x-3">
+                    <a href="cart.html" class="py-2 px-2 text-gray-300 hover:text-primary-light relative">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="absolute -top-1 -right-1 bg-primary-light text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">3</span>
+                    </a>
+                    <a href="account.html" class="py-2 px-2 text-gray-300 hover:text-primary-light">
+                        <i class="fas fa-user"></i>
+                    </a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button class="outline-none mobile-menu-button">
+                        <i class="fas fa-bars text-white"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
     </nav>
 
     <!-- Shop Header -->
-    <div class="bg-gray-100 py-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center">
-                <h1 class="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
-                    Our Collection
-                </h1>
-                <p class="mt-4 max-w-2xl text-xl text-gray-500 mx-auto">
-                    Quality second-hand clothes at affordable prices
-                </p>
-            </div>
+    <div class="bg-gradient-to-r from-primary-dark to-primary py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-4xl font-extrabold tracking-tight text-white sm:text-5xl">
+                Our Collection
+            </h1>
+            <p class="mt-4 max-w-2xl text-xl text-white opacity-90 mx-auto">
+                Quality second-hand clothes at affordable prices
+            </p>
         </div>
     </div>
 
     <!-- Filter/Sort Bar -->
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 bg-white shadow-sm">
         <div class="flex flex-col md:flex-row justify-between items-center">
             <div class="mb-4 md:mb-0">
                 <span class="text-sm text-gray-700">Showing 24 of 124 products</span>
             </div>
             <div class="flex items-center space-x-4">
                 <div class="relative">
-                    <select class="appearance-none bg-white border border-gray-300 rounded-md pl-3 pr-8 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-green-500">
+                    <select class="appearance-none bg-white border border-gray-300 rounded-md pl-3 pr-8 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary">
                         <option>All Categories</option>
                         <option>Men's Clothing</option>
                         <option>Women's Clothing</option>
                         <option>Kids</option>
                         <option>Shoes</option>
+                        <option>Accessories</option>
                     </select>
                     <i class="fas fa-chevron-down absolute right-3 top-2.5 text-gray-400 text-xs"></i>
                 </div>
                 <div class="relative">
-                    <select class="appearance-none bg-white border border-gray-300 rounded-md pl-3 pr-8 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-green-500">
+                    <select class="appearance-none bg-white border border-gray-300 rounded-md pl-3 pr-8 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary">
                         <option>Sort by: Featured</option>
                         <option>Price: Low to High</option>
                         <option>Price: High to Low</option>
                         <option>Newest Arrivals</option>
+                        <option>Most Popular</option>
                     </select>
                     <i class="fas fa-chevron-down absolute right-3 top-2.5 text-gray-400 text-xs"></i>
                 </div>
@@ -58,76 +137,196 @@
     </div>
 
     <!-- Product Grid -->
-    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12">
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div class="grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
             <!-- Product 1 -->
-            <div class="group relative bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow">
-                <div class="w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-80">
-                    <img src="https://via.placeholder.com/300x400" alt="Product image" class="w-full h-full object-center object-cover">
-                    <div class="absolute top-2 right-2 bg-green-500 text-white text-xs font-bold px-2 py-1 rounded-full">
+            <div class="product-card group relative bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-all duration-300">
+                <div class="w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-90 lg:h-80 relative">
+                    <img src="https://images.unsplash.com/photo-1542272604-787c3835535d" alt="Designer Jeans" class="w-full h-full object-center object-cover">
+                    <div class="product-badge bg-primary-light text-white">
                         New
                     </div>
                 </div>
                 <div class="mt-4">
                     <div class="flex justify-between">
-                        <h3 class="text-sm text-gray-700">
-                            <a href="product.html">
-                                <span aria-hidden="true" class="absolute inset-0"></span>
+                        <h3 class="text-sm font-medium text-gray-900">
+                            <a href="product-1.html" class="hover:text-primary-dark">
                                 Designer Jeans
                             </a>
                         </h3>
-                        <p class="text-sm font-medium text-gray-900">KSh 1,200</p>
+                        <p class="text-sm font-bold text-primary-dark">KSh 1,200</p>
                     </div>
-                    <p class="mt-1 text-sm text-gray-500">Size: 32</p>
-                    <div class="mt-2">
-                        <button class="w-full bg-green-600 text-white py-2 px-4 rounded-md hover:bg-green-700 text-sm">
+                    <p class="mt-1 text-xs text-gray-500">Size: 32 | Condition: Excellent</p>
+                    <div class="mt-3">
+                        <a href="cart.html" class="block w-full bg-primary text-white text-center py-2 px-4 rounded-md hover:bg-primary-dark text-sm font-medium transition-colors">
                             Add to Cart
-                        </button>
+                        </a>
                     </div>
                 </div>
             </div>
 
             <!-- Product 2 -->
-            <div class="group relative bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow">
-                <!-- ... similar structure as Product 1 ... -->
+            <div class="product-card group relative bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-all duration-300">
+                <div class="w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-90 lg:h-80 relative">
+                    <img src="https://images.unsplash.com/photo-1529374255404-311a2a4f1fd9" alt="Casual T-Shirt" class="w-full h-full object-center object-cover">
+                    <div class="product-badge bg-black text-white">
+                        Popular
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <div class="flex justify-between">
+                        <h3 class="text-sm font-medium text-gray-900">
+                            <a href="product-2.html" class="hover:text-primary-dark">
+                                Casual T-Shirt
+                            </a>
+                        </h3>
+                        <p class="text-sm font-bold text-primary-dark">KSh 500</p>
+                    </div>
+                    <p class="mt-1 text-xs text-gray-500">Size: L | Condition: Good</p>
+                    <div class="mt-3">
+                        <a href="cart.html" class="block w-full bg-primary text-white text-center py-2 px-4 rounded-md hover:bg-primary-dark text-sm font-medium transition-colors">
+                            Add to Cart
+                        </a>
+                    </div>
+                </div>
             </div>
 
-            <!-- Products 3-8 would follow same pattern -->
+            <!-- Product 3 -->
+            <div class="product-card group relative bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-all duration-300">
+                <div class="w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-90 lg:h-80 relative">
+                    <img src="https://images.unsplash.com/photo-1551232864-3f0890e580d9" alt="Winter Jacket" class="w-full h-full object-center object-cover">
+                    <div class="product-badge bg-red-500 text-white">
+                        Sale
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <div class="flex justify-between">
+                        <h3 class="text-sm font-medium text-gray-900">
+                            <a href="product-3.html" class="hover:text-primary-dark">
+                                Winter Jacket
+                            </a>
+                        </h3>
+                        <div>
+                            <span class="text-sm font-bold text-primary-dark">KSh 2,500</span>
+                            <span class="ml-1 text-xs text-gray-500 line-through">KSh 3,200</span>
+                        </div>
+                    </div>
+                    <p class="mt-1 text-xs text-gray-500">Size: XL | Condition: Like New</p>
+                    <div class="mt-3">
+                        <a href="cart.html" class="block w-full bg-primary text-white text-center py-2 px-4 rounded-md hover:bg-primary-dark text-sm font-medium transition-colors">
+                            Add to Cart
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 4 -->
+            <div class="product-card group relative bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-all duration-300">
+                <div class="w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-90 lg:h-80 relative">
+                    <img src="https://images.unsplash.com/photo-1539533018447-63fcce2678e4" alt="Formal Dress" class="w-full h-full object-center object-cover">
+                </div>
+                <div class="mt-4">
+                    <div class="flex justify-between">
+                        <h3 class="text-sm font-medium text-gray-900">
+                            <a href="product-4.html" class="hover:text-primary-dark">
+                                Formal Dress
+                            </a>
+                        </h3>
+                        <p class="text-sm font-bold text-primary-dark">KSh 1,800</p>
+                    </div>
+                    <p class="mt-1 text-xs text-gray-500">Size: M | Condition: Very Good</p>
+                    <div class="mt-3">
+                        <a href="cart.html" class="block w-full bg-primary text-white text-center py-2 px-4 rounded-md hover:bg-primary-dark text-sm font-medium transition-colors">
+                            Add to Cart
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Products 5-8 would follow same pattern -->
         </div>
 
         <!-- Pagination -->
         <div class="mt-12 flex justify-center">
             <nav class="flex items-center space-x-2">
                 <a href="#" class="px-3 py-1 border border-gray-300 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-50">
-                    Previous
+                    <i class="fas fa-chevron-left"></i>
                 </a>
-                <a href="#" class="px-3 py-1 border border-gray-300 rounded-md text-sm font-medium text-white bg-green-600 hover:bg-green-700">
+                <a href="#" class="px-3 py-1 border border-gray-300 rounded-md text-sm font-medium text-white bg-primary hover:bg-primary-dark">
                     1
                 </a>
-                <a href="#" class="px-3 py-1 border border-gray-300 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-50">
+                <a href="shop-page2.html" class="px-3 py-1 border border-gray-300 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-50">
                     2
                 </a>
-                <a href="#" class="px-3 py-1 border border-gray-300 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-50">
+                <a href="shop-page3.html" class="px-3 py-1 border border-gray-300 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-50">
                     3
                 </a>
                 <span class="px-3 py-1 text-sm text-gray-700">
                     ...
                 </span>
-                <a href="#" class="px-3 py-1 border border-gray-300 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-50">
+                <a href="shop-page8.html" class="px-3 py-1 border border-gray-300 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-50">
                     8
                 </a>
-                <a href="#" class="px-3 py-1 border border-gray-300 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-50">
-                    Next
+                <a href="shop-page2.html" class="px-3 py-1 border border-gray-300 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-50">
+                    <i class="fas fa-chevron-right"></i>
                 </a>
             </nav>
         </div>
     </section>
 
-    <!-- Footer (same as index.html) -->
-    <footer class="bg-gray-800 text-white pt-12 pb-8">
-        <!-- ... same footer as index.html ... -->
+    <!-- Footer -->
+    <footer class="bg-black text-white pt-12 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-lg font-semibold mb-4 text-primary-light">Mtush Plug KE</h3>
+                    <p class="text-gray-400">Your trusted source for quality second-hand clothing in Kenya.</p>
+                    <div class="mt-4 flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-primary-light">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-primary-light">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-primary-light">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4 text-primary-light">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-primary-light">Home</a></li>
+                        <li><a href="shop.html" class="text-gray-400 hover:text-primary-light">Shop</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-primary-light">About Us</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-primary-light">Contact</a></li>
+                        <li><a href="faq.html" class="text-gray-400 hover:text-primary-light">FAQs</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4 text-primary-light">Contact Us</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><i class="fas fa-phone mr-2"></i> 0706396305</li>
+                        <li><i class="fas fa-envelope mr-2"></i> jonathanmwaniki07@gmail.com</li>
+                        <li><i class="fas fa-map-marker-alt mr-2"></i> Nairobi, Kenya</li>
+                        <li><i class="fas fa-clock mr-2"></i> Mon-Sat: 9AM - 6PM</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2023 Mtush Plug KE. All rights reserved.</p>
+            </div>
+        </div>
     </footer>
 
-    <script src="js/main.js"></script>
+    <script>
+        // Mobile menu toggle
+        const btn = document.querySelector('.mobile-menu-button');
+        const menu = document.querySelector('.mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+    </script>
 </body>
 </html>
