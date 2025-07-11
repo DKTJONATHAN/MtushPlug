@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart - Mtush Plug KE</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation (same as index.html) -->
+    <nav class="bg-white shadow-lg">
+        <!-- ... same nav as index.html ... -->
+    </nav>
+
+    <!-- Cart Header -->
+    <div class="bg-gray-100 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h1 class="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+                    Your Shopping Cart
+                </h1>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart Content -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="lg:grid lg:grid-cols-12 lg:gap-x-12">
+            <div class="lg:col-span-8">
+                <!-- Empty cart message -->
+                <div class="bg-white p-8 rounded-lg shadow text-center hidden" id="empty-cart">
+                    <i class="fas fa-shopping-cart text-5xl text-gray-300 mb-4"></i>
+                    <h3 class="text-lg font-medium text-gray-900">Your cart is empty</h3>
+                    <p class="mt-2 text-sm text-gray-500">Start shopping to add items to your cart</p>
+                    <div class="mt-6">
+                        <a href="shop.html" class="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-green-600 hover:bg-green-700">
+                            Continue Shopping
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Cart with items -->
+                <div class="bg-white rounded-lg shadow overflow-hidden" id="cart-items">
+                    <ul class="divide-y divide-gray-200">
+                        <!-- Cart Item 1 -->
+                        <li class="p-6 flex flex-col sm:flex-row">
+                            <div class="flex-shrink-0">
+                                <img src="https://via.placeholder.com/150x200" alt="Product image" class="w-24 h-32 rounded-md object-center object-cover">
+                            </div>
+
+                            <div class="mt-4 sm:mt-0 sm:ml-6 flex-1">
+                                <div class="flex items-center justify-between">
+                                    <h4 class="text-sm font-medium text-gray-900">
+                                        <a href="product.html">Designer Jeans</a>
+                                    </h4>
+                                    <p class="text-sm font-medium text-gray-900 ml-4">KSh 1,200</p>
+                                </div>
+                                <p class="mt-1 text-sm text-gray-500">Size: 32</p>
+                                <p class="mt-1 text-sm text-gray-500">Condition: Excellent</p>
+
+                                <div class="mt-4 flex items-center justify-between">
+                                    <div class="flex items-center border border-gray-300 rounded-md">
+                                        <button class="px-3 py-1 text-gray-600 hover:text-gray-700 focus:outline-none">
+                                            -
+                                        </button>
+                                        <span class="px-3 py-1 text-gray-900">1</span>
+                                        <button class="px-3 py-1 text-gray-600 hover:text-gray-700 focus:outline-none">
+                                            +
+                                        </button>
+                                    </div>
+                                    <button type="button" class="ml-4 text-sm font-medium text-red-600 hover:text-red-500">
+                                        Remove
+                                    </button>
+                                </div>
+                            </div>
+                        </li>
+
+                        <!-- More cart items would go here -->
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Order Summary -->
+            <div class="mt-8 lg:mt-0 lg:col-span-4">
+                <div class="bg-white rounded-lg shadow overflow-hidden">
+                    <h2 class="sr-only">Order summary</h2>
+                    <div class="p-6">
+                        <h3 class="text-lg font-medium text-gray-900">Order Summary</h3>
+                        <dl class="mt-6 space-y-4">
+                            <div class="flex items-center justify-between">
+                                <dt class="text-sm text-gray-600">Subtotal</dt>
+                                <dd class="text-sm font-medium text-gray-900">KSh 3,400</dd>
+                            </div>
+                            <div class="flex items-center justify-between border-t border-gray-200 pt-4">
+                                <dt class="text-base font-medium text-gray-900">Order total</dt>
+                                <dd class="text-base font-medium text-gray-900">KSh 3,400</dd>
+                            </div>
+                        </dl>
+
+                        <div class="mt-6">
+                            <button type="button" class="w-full bg-green-600 border border-transparent rounded-md py-3 px-4 flex items-center justify-center text-base font-medium text-white hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
+                                Checkout
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-4 bg-white rounded-lg shadow overflow-hidden">
+                    <div class="p-6">
+                        <h3 class="text-sm font-medium text-gray-900">Delivery Options</h3>
+                        <div class="mt-4 space-y-4">
+                            <div class="flex items-start">
+                                <div class="flex items-center h-5">
+                                    <input id="pickup" name="delivery-method" type="radio" class="focus:ring-green-500 h-4 w-4 text-green-600 border-gray-300" checked>
+                                </div>
+                                <div class="ml-3 text-sm">
+                                    <label for="pickup" class="font-medium text-gray-700">Nairobi Pickup (Free)</label>
+                                    <p class="text-gray-500">Collect from our location in Westlands</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="flex items-center h-5">
+                                    <input id="delivery" name="delivery-method" type="radio" class="focus:ring-green-500 h-4 w-4 text-green-600 border-gray-300">
+                                </div>
+                                <div class="ml-3 text-sm">
+                                    <label for="delivery" class="font-medium text-gray-700">Home Delivery (KSh 200)</label>
+                                    <p class="text-gray-500">Delivered within 2-3 business days</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (same as index.html) -->
+    <footer class="bg-gray-800 text-white pt-12 pb-8">
+        <!-- ... same footer as index.html ... -->
+    </footer>
+
+    <script src="js/cart.js"></script>
+</body>
+</html>
