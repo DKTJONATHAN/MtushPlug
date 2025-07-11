@@ -6,82 +6,267 @@
     <title>Checkout - Mtush Plug KE</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Custom sun dress vector logo */
+        .logo-sundress {
+            width: 40px;
+            height: 40px;
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 10px;
+        }
+        
+        /* Form input focus */
+        .form-input:focus {
+            border-color: #FF7A00;
+            box-shadow: 0 0 0 1px #FF7A00;
+        }
+        
+        /* Payment method card */
+        .payment-method-card {
+            transition: all 0.2s ease;
+            border: 2px solid #e5e7eb;
+        }
+        .payment-method-card:hover {
+            border-color: #FF9A3C;
+        }
+        .payment-method-card.selected {
+            border-color: #FF7A00;
+            background-color: #fff7f0;
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            light: '#FF9A3C',
+                            DEFAULT: '#FF7A00',
+                            dark: '#E65C00',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
 </head>
 <body class="bg-gray-50">
-    <!-- Navigation (same as index.html) -->
-    <nav class="bg-white shadow-lg">
-        <!-- ... same nav as index.html ... -->
+    <!-- Navigation -->
+    <nav class="bg-black shadow-lg sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex justify-between">
+                <div class="flex space-x-7">
+                    <div>
+                        <a href="index.html" class="flex items-center py-4 px-2">
+                            <svg class="logo-sundress" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M50 10 L60 30 L70 20 L80 40 L70 60 L60 70 L50 90 L40 70 L30 60 L20 40 L30 20 L40 30 Z" 
+                                      fill="#FF7A00" stroke="white" stroke-width="2"/>
+                                <circle cx="50" cy="30" r="5" fill="white"/>
+                                <circle cx="35" cy="45" r="5" fill="white"/>
+                                <circle cx="65" cy="45" r="5" fill="white"/>
+                            </svg>
+                            <span class="font-semibold text-white text-lg">Mtush Plug KE</span>
+                        </a>
+                    </div>
+                    <div class="hidden md:flex items-center space-x-1">
+                        <a href="index.html" class="py-4 px-2 text-gray-300 font-semibold hover:text-primary-light transition duration-300">Home</a>
+                        <a href="shop.html" class="py-4 px-2 text-gray-300 font-semibold hover:text-primary-light transition duration-300">Shop</a>
+                        <a href="about.html" class="py-4 px-2 text-gray-300 font-semibold hover:text-primary-light transition duration-300">About</a>
+                        <a href="contact.html" class="py-4 px-2 text-gray-300 font-semibold hover:text-primary-light transition duration-300">Contact</a>
+                    </div>
+                </div>
+                <div class="hidden md:flex items-center space-x-3">
+                    <a href="cart.html" class="py-2 px-2 text-gray-300 hover:text-primary-light relative">
+                        <i class="fas fa-shopping-cart"></i>
+                    </a>
+                    <a href="account.html" class="py-2 px-2 text-gray-300 hover:text-primary-light">
+                        <i class="fas fa-user"></i>
+                    </a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button class="outline-none mobile-menu-button">
+                        <i class="fas fa-bars text-white"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
     </nav>
 
     <!-- Checkout Header -->
-    <div class="bg-gray-100 py-12">
+    <div class="bg-gradient-to-r from-primary-dark to-primary py-16">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center">
-                <h1 class="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+                <h1 class="text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
                     Checkout
                 </h1>
+                <nav aria-label="Breadcrumb" class="flex justify-center mt-4">
+                    <ol class="flex items-center space-x-2">
+                        <li>
+                            <div class="flex items-center">
+                                <a href="index.html" class="text-sm font-medium text-white hover:text-primary-light">Home</a>
+                                <svg class="flex-shrink-0 h-5 w-5 text-gray-300 mx-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                                </svg>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="flex items-center">
+                                <a href="cart.html" class="text-sm font-medium text-white hover:text-primary-light">Cart</a>
+                                <svg class="flex-shrink-0 h-5 w-5 text-gray-300 mx-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                                </svg>
+                            </div>
+                        </li>
+                        <li class="text-sm">
+                            <span class="font-medium text-primary-light">Checkout</span>
+                        </li>
+                    </ol>
+                </nav>
             </div>
         </div>
     </div>
 
     <!-- Checkout Content -->
     <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div class="lg:grid lg:grid-cols-2 lg:gap-x-12">
+        <div class="lg:grid lg:grid-cols-2 lg:gap-x-8">
             <!-- Customer Information -->
             <div class="lg:col-span-1">
                 <div class="bg-white p-6 rounded-lg shadow">
-                    <h2 class="text-lg font-medium text-gray-900 mb-6">Customer Information</h2>
-                    
+                    <h2 class="text-lg font-medium text-gray-900 mb-6 flex items-center">
+                        <i class="fas fa-user-circle text-primary mr-2"></i> Customer Information
+                    </h2>
+
                     <form class="space-y-6">
-                        <div>
-                            <label for="full-name" class="block text-sm font-medium text-gray-700">Full Name</label>
-                            <input type="text" id="full-name" name="full-name" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-green-500 focus:border-green-500">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="first-name" class="block text-sm font-medium text-gray-700">First Name*</label>
+                                <input type="text" id="first-name" name="first-name" required class="mt-1 form-input block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-primary focus:border-primary">
+                            </div>
+                            <div>
+                                <label for="last-name" class="block text-sm font-medium text-gray-700">Last Name*</label>
+                                <input type="text" id="last-name" name="last-name" required class="mt-1 form-input block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-primary focus:border-primary">
+                            </div>
                         </div>
 
                         <div>
-                            <label for="email" class="block text-sm font-medium text-gray-700">Email Address</label>
-                            <input type="email" id="email" name="email" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-green-500 focus:border-green-500">
+                            <label for="email" class="block text-sm font-medium text-gray-700">Email Address*</label>
+                            <input type="email" id="email" name="email" required class="mt-1 form-input block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-primary focus:border-primary">
                         </div>
 
                         <div>
-                            <label for="phone" class="block text-sm font-medium text-gray-700">Phone Number</label>
-                            <input type="tel" id="phone" name="phone" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-green-500 focus:border-green-500">
+                            <label for="phone" class="block text-sm font-medium text-gray-700">Phone Number*</label>
+                            <div class="mt-1 flex rounded-md shadow-sm">
+                                <span class="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-sm">+254</span>
+                                <input type="tel" id="phone" name="phone" required class="form-input flex-1 block w-full rounded-none rounded-r-md border-gray-300 py-2 px-3 focus:outline-none focus:ring-primary focus:border-primary">
+                            </div>
                         </div>
 
-                        <div>
-                            <label for="address" class="block text-sm font-medium text-gray-700">Delivery Address</label>
-                            <textarea id="address" name="address" rows="3" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-green-500 focus:border-green-500"></textarea>
+                        <div class="border-t border-gray-200 pt-6">
+                            <h3 class="text-lg font-medium text-gray-900 mb-4 flex items-center">
+                                <i class="fas fa-truck text-primary mr-2"></i> Delivery Information
+                            </h3>
+                            
+                            <div class="mb-4">
+                                <div class="flex items-start">
+                                    <div class="flex items-center h-5">
+                                        <input id="pickup" name="delivery-method" type="radio" class="focus:ring-primary h-4 w-4 text-primary border-gray-300" checked>
+                                    </div>
+                                    <div class="ml-3 text-sm">
+                                        <label for="pickup" class="font-medium text-gray-700">Nairobi Pickup (Free)</label>
+                                        <p class="text-gray-500">Collect from our location in Westlands</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex items-start">
+                                    <div class="flex items-center h-5">
+                                        <input id="delivery" name="delivery-method" type="radio" class="focus:ring-primary h-4 w-4 text-primary border-gray-300">
+                                    </div>
+                                    <div class="ml-3 text-sm">
+                                        <label for="delivery" class="font-medium text-gray-700">Home Delivery (KSh 200)</label>
+                                        <p class="text-gray-500">Delivered within 2-3 business days</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="delivery-address-fields" class="mt-4 hidden">
+                                <div>
+                                    <label for="county" class="block text-sm font-medium text-gray-700">County*</label>
+                                    <select id="county" name="county" class="mt-1 form-input block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-primary focus:border-primary">
+                                        <option value="">Select County</option>
+                                        <option>Nairobi</option>
+                                        <option>Kiambu</option>
+                                        <option>Machakos</option>
+                                        <option>Kajiado</option>
+                                    </select>
+                                </div>
+                                <div class="mt-4">
+                                    <label for="address" class="block text-sm font-medium text-gray-700">Street Address*</label>
+                                    <textarea id="address" name="address" rows="3" class="mt-1 form-input block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-primary focus:border-primary"></textarea>
+                                </div>
+                                <div class="grid grid-cols-2 gap-4 mt-4">
+                                    <div>
+                                        <label for="building" class="block text-sm font-medium text-gray-700">Building/Apartment</label>
+                                        <input type="text" id="building" name="building" class="mt-1 form-input block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-primary focus:border-primary">
+                                    </div>
+                                    <div>
+                                        <label for="landmark" class="block text-sm font-medium text-gray-700">Landmark</label>
+                                        <input type="text" id="landmark" name="landmark" class="mt-1 form-input block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-primary focus:border-primary">
+                                    </div>
+                                </div>
+                            </div>
                         </div>
 
-                        <div>
-                            <label for="notes" class="block text-sm font-medium text-gray-700">Order Notes (Optional)</label>
-                            <textarea id="notes" name="notes" rows="2" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-green-500 focus:border-green-500" placeholder="Any special instructions..."></textarea>
+                        <div class="border-t border-gray-200 pt-6">
+                            <h3 class="text-lg font-medium text-gray-900 mb-4 flex items-center">
+                                <i class="fas fa-sticky-note text-primary mr-2"></i> Order Notes (Optional)
+                            </h3>
+                            <textarea id="notes" name="notes" rows="3" class="form-input block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-primary focus:border-primary" placeholder="Any special instructions for delivery..."></textarea>
                         </div>
                     </form>
                 </div>
 
                 <!-- Payment Method -->
                 <div class="bg-white p-6 rounded-lg shadow mt-6">
-                    <h2 class="text-lg font-medium text-gray-900 mb-6">Payment Method</h2>
-                    
+                    <h2 class="text-lg font-medium text-gray-900 mb-6 flex items-center">
+                        <i class="fas fa-credit-card text-primary mr-2"></i> Payment Method
+                    </h2>
+
                     <div class="space-y-4">
-                        <div class="flex items-start">
-                            <div class="flex items-center h-5">
-                                <input id="mpesa" name="payment-method" type="radio" class="focus:ring-green-500 h-4 w-4 text-green-600 border-gray-300" checked>
-                            </div>
-                            <div class="ml-3 text-sm">
-                                <label for="mpesa" class="font-medium text-gray-700">M-Pesa</label>
-                                <p class="text-gray-500">Pay via M-Pesa. You'll receive a payment request.</p>
+                        <div class="payment-method-card p-4 rounded-lg selected" data-method="mpesa">
+                            <div class="flex items-start">
+                                <div class="flex items-center h-5">
+                                    <input id="mpesa" name="payment-method" type="radio" class="focus:ring-primary h-4 w-4 text-primary border-gray-300" checked>
+                                </div>
+                                <div class="ml-3 flex-1">
+                                    <div class="flex justify-between">
+                                        <label for="mpesa" class="font-medium text-gray-700">M-Pesa</label>
+                                        <img src="https://via.placeholder.com/60x20?text=M-Pesa" alt="M-Pesa" class="h-6">
+                                    </div>
+                                    <p class="text-sm text-gray-500 mt-1">Pay via M-Pesa. You'll receive a payment request on your phone.</p>
+                                    <div id="mpesa-details" class="mt-3">
+                                        <div class="bg-gray-50 p-3 rounded-md">
+                                            <p class="text-sm text-gray-700">Enter your M-Pesa phone number:</p>
+                                            <div class="mt-2 flex rounded-md shadow-sm">
+                                                <span class="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-sm">+254</span>
+                                                <input type="tel" id="mpesa-phone" name="mpesa-phone" class="form-input flex-1 block w-full rounded-none rounded-r-md border-gray-300 py-2 px-3 focus:outline-none focus:ring-primary focus:border-primary" placeholder="7XX XXX XXX">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
-                        <div class="flex items-start">
-                            <div class="flex items-center h-5">
-                                <input id="cash" name="payment-method" type="radio" class="focus:ring-green-500 h-4 w-4 text-green-600 border-gray-300">
-                            </div>
-                            <div class="ml-3 text-sm">
-                                <label for="cash" class="font-medium text-gray-700">Cash on Delivery</label>
-                                <p class="text-gray-500">Pay when you receive your order</p>
+                        <div class="payment-method-card p-4 rounded-lg" data-method="cash">
+                            <div class="flex items-start">
+                                <div class="flex items-center h-5">
+                                    <input id="cash" name="payment-method" type="radio" class="focus:ring-primary h-4 w-4 text-primary border-gray-300">
+                                </div>
+                                <div class="ml-3">
+                                    <label for="cash" class="font-medium text-gray-700">Cash on Delivery</label>
+                                    <p class="text-sm text-gray-500 mt-1">Pay when you receive your order</p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -90,17 +275,19 @@
 
             <!-- Order Summary -->
             <div class="lg:col-span-1 mt-8 lg:mt-0">
-                <div class="bg-white rounded-lg shadow overflow-hidden">
+                <div class="bg-white rounded-lg shadow overflow-hidden sticky top-4">
                     <h2 class="sr-only">Order summary</h2>
                     <div class="p-6">
-                        <h3 class="text-lg font-medium text-gray-900">Order Summary</h3>
-                        
+                        <h3 class="text-lg font-medium text-gray-900 flex items-center">
+                            <i class="fas fa-shopping-bag text-primary mr-2"></i> Order Summary
+                        </h3>
+
                         <div class="mt-6">
                             <ul class="divide-y divide-gray-200">
                                 <!-- Order Item 1 -->
                                 <li class="py-4 flex">
                                     <div class="flex-shrink-0">
-                                        <img src="https://via.placeholder.com/80x80" alt="Product image" class="w-16 h-20 rounded-md object-center object-cover">
+                                        <img src="https://images.unsplash.com/photo-1542272604-787c3835535d" alt="Designer Jeans" class="w-16 h-20 rounded-md object-center object-cover">
                                     </div>
                                     <div class="ml-4 flex-1 flex flex-col">
                                         <div>
@@ -108,22 +295,45 @@
                                                 <h3>Designer Jeans</h3>
                                                 <p class="ml-4">KSh 1,200</p>
                                             </div>
-                                            <p class="mt-1 text-sm text-gray-500">Size: 32</p>
+                                            <p class="mt-1 text-sm text-gray-500">Size: 32 | Condition: Excellent</p>
                                         </div>
                                         <div class="flex-1 flex items-end justify-between text-sm">
                                             <p class="text-gray-500">Qty 1</p>
+                                            <button type="button" class="font-medium text-primary hover:text-primary-dark">
+                                                Edit
+                                            </button>
                                         </div>
                                     </div>
                                 </li>
 
-                                <!-- More order items would go here -->
+                                <!-- Order Item 2 -->
+                                <li class="py-4 flex">
+                                    <div class="flex-shrink-0">
+                                        <img src="https://images.unsplash.com/photo-1529374255404-311a2a4f1fd9" alt="Casual T-Shirt" class="w-16 h-20 rounded-md object-center object-cover">
+                                    </div>
+                                    <div class="ml-4 flex-1 flex flex-col">
+                                        <div>
+                                            <div class="flex justify-between text-base font-medium text-gray-900">
+                                                <h3>Casual T-Shirt</h3>
+                                                <p class="ml-4">KSh 500</p>
+                                            </div>
+                                            <p class="mt-1 text-sm text-gray-500">Size: L | Condition: Good</p>
+                                        </div>
+                                        <div class="flex-1 flex items-end justify-between text-sm">
+                                            <p class="text-gray-500">Qty 2</p>
+                                            <button type="button" class="font-medium text-primary hover:text-primary-dark">
+                                                Edit
+                                            </button>
+                                        </div>
+                                    </div>
+                                </li>
                             </ul>
                         </div>
 
                         <dl class="mt-6 space-y-4 border-t border-gray-200 pt-6">
                             <div class="flex items-center justify-between">
-                                <dt class="text-sm text-gray-600">Subtotal</dt>
-                                <dd class="text-sm font-medium text-gray-900">KSh 3,400</dd>
+                                <dt class="text-sm text-gray-600">Subtotal (3 items)</dt>
+                                <dd class="text-sm font-medium text-gray-900">KSh 2,200</dd>
                             </div>
                             <div class="flex items-center justify-between">
                                 <dt class="text-sm text-gray-600">Delivery</dt>
@@ -131,24 +341,168 @@
                             </div>
                             <div class="flex items-center justify-between border-t border-gray-200 pt-4">
                                 <dt class="text-base font-medium text-gray-900">Order total</dt>
-                                <dd class="text-base font-medium text-gray-900">KSh 3,600</dd>
+                                <dd class="text-base font-bold text-primary-dark">KSh 2,400</dd>
                             </div>
                         </dl>
 
                         <div class="mt-6">
-                            <button type="submit" class="w-full bg-green-600 border border-transparent rounded-md py-3 px-4 flex items-center justify-center text-base font-medium text-white hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
-                                Complete Order
+                            <button type="submit" class="w-full bg-primary border border-transparent rounded-md py-3 px-4 flex items-center justify-center text-base font-medium text-white hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary">
+                                <i class="fas fa-lock mr-2"></i> Complete Order
                             </button>
                         </div>
+                        
+                        <div class="mt-4 flex items-center justify-center">
+                            <img src="https://via.placeholder.com/25x16?text=Visa" alt="Visa" class="h-4 mx-2">
+                            <img src="https://via.placeholder.com/25x16?text=MC" alt="Mastercard" class="h-4 mx-2">
+                            <img src="https://via.placeholder.com/25x16?text=M-Pesa" alt="M-Pesa" class="h-4 mx-2">
+                        </div>
+                        <p class="mt-2 text-xs text-center text-gray-500">Secure payment processing</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer (same as index.html) -->
-    <footer class="bg-gray-800 text-white pt-12 pb-8">
-        <!-- ... same footer as index.html ... -->
+    <!-- Footer -->
+    <footer class="bg-black text-white pt-12 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-lg font-semibold mb-4 text-primary-light">Mtush Plug KE</h3>
+                    <p class="text-gray-400">Your trusted source for quality second-hand clothing in Kenya.</p>
+                    <div class="mt-4 flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-primary-light">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-primary-light">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-primary-light">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4 text-primary-light">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-primary-light">Home</a></li>
+                        <li><a href="shop.html" class="text-gray-400 hover:text-primary-light">Shop</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-primary-light">About Us</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-primary-light">Contact</a></li>
+                        <li><a href="faq.html" class="text-gray-400 hover:text-primary-light">FAQs</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4 text-primary-light">Contact Us</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><i class="fas fa-phone mr-2"></i> 0706396305</li>
+                        <li><i class="fas fa-envelope mr-2"></i> jonathanmwaniki07@gmail.com</li>
+                        <li><i class="fas fa-map-marker-alt mr-2"></i> Nairobi, Kenya</li>
+                        <li><i class="fas fa-clock mr-2"></i> Mon-Sat: 9AM - 6PM</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2023 Mtush Plug KE. All rights reserved.</p>
+            </div>
+        </div>
     </footer>
+
+    <script>
+        // Mobile menu toggle
+        const btn = document.querySelector('.mobile-menu-button');
+        const menu = document.querySelector('.mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // Delivery method toggle
+        document.querySelectorAll('input[name="delivery-method"]').forEach(radio => {
+            radio.addEventListener('change', (e) => {
+                const deliveryFields = document.getElementById('delivery-address-fields');
+                if (e.target.id === 'delivery') {
+                    deliveryFields.classList.remove('hidden');
+                } else {
+                    deliveryFields.classList.add('hidden');
+                }
+            });
+        });
+
+        // Payment method selection
+        document.querySelectorAll('.payment-method-card').forEach(card => {
+            card.addEventListener('click', (e) => {
+                // Don't toggle if clicking on input directly
+                if (e.target.tagName !== 'INPUT') {
+                    const radio = card.querySelector('input[type="radio"]');
+                    radio.checked = true;
+                    
+                    // Update UI
+                    document.querySelectorAll('.payment-method-card').forEach(c => {
+                        c.classList.remove('selected');
+                    });
+                    card.classList.add('selected');
+                }
+            });
+        });
+
+        // Form validation before submission
+        document.querySelector('button[type="submit"]').addEventListener('click', (e) => {
+            // Basic validation - in a real app you would do more thorough validation
+            const requiredFields = [
+                'first-name', 'last-name', 'email', 'phone'
+            ];
+            
+            let isValid = true;
+            
+            requiredFields.forEach(fieldId => {
+                const field = document.getElementById(fieldId);
+                if (!field.value.trim()) {
+                    field.classList.add('border-red-500');
+                    isValid = false;
+                } else {
+                    field.classList.remove('border-red-500');
+                }
+            });
+            
+            if (document.getElementById('delivery').checked) {
+                const county = document.getElementById('county');
+                const address = document.getElementById('address');
+                
+                if (!county.value) {
+                    county.classList.add('border-red-500');
+                    isValid = false;
+                } else {
+                    county.classList.remove('border-red-500');
+                }
+                
+                if (!address.value.trim()) {
+                    address.classList.add('border-red-500');
+                    isValid = false;
+                } else {
+                    address.classList.remove('border-red-500');
+                }
+            }
+            
+            if (document.getElementById('mpesa').checked) {
+                const mpesaPhone = document.getElementById('mpesa-phone');
+                if (!mpesaPhone.value.trim() || mpesaPhone.value.trim().length < 9) {
+                    mpesaPhone.classList.add('border-red-500');
+                    isValid = false;
+                } else {
+                    mpesaPhone.classList.remove('border-red-500');
+                }
+            }
+            
+            if (!isValid) {
+                e.preventDefault();
+                alert('Please fill in all required fields correctly.');
+            } else {
+                // In a real app, you would submit the form here
+                alert('Order placed successfully! Redirecting to confirmation page...');
+                // window.location.href = 'order-confirmation.html';
+            }
+        });
+    </script>
 </body>
 </html>
