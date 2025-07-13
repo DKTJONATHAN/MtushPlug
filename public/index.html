@@ -15,7 +15,7 @@
             vertical-align: middle;
             margin-right: 10px;
         }
-
+        
         /* Splash screen styles */
         #splash-screen {
             position: fixed;
@@ -31,20 +31,20 @@
             z-index: 9999;
             transition: opacity 0.5s ease-out;
         }
-
+        
         .splash-logo {
             width: 120px;
             height: 120px;
             margin-bottom: 20px;
             animation: pulse 2s infinite;
         }
-
+        
         @keyframes pulse {
             0% { transform: scale(1); }
             50% { transform: scale(1.1); }
             100% { transform: scale(1); }
         }
-
+        
         .splash-text {
             color: white;
             font-size: 1.5rem;
@@ -112,7 +112,6 @@
                 <div class="hidden md:flex items-center space-x-3">
                     <a href="cart.html" class="py-2 px-2 text-gray-300 hover:text-primary-light">
                         <i class="fas fa-shopping-cart"></i>
-                        <span id="cart-count" class="ml-1"></span>
                     </a>
                     <a href="#" class="py-2 px-2 text-gray-300 hover:text-primary-light">
                         <i class="fas fa-user"></i>
@@ -176,7 +175,7 @@
                     <div class="mt-4 flex justify-between">
                         <div>
                             <h3 class="text-sm text-gray-700">
-                                <a href="product.html" onclick="localStorage.setItem('currentProduct', 0)">
+                                <a href="product.html">
                                     <span aria-hidden="true" class="absolute inset-0"></span>
                                     Designer Jeans
                                 </a>
@@ -195,7 +194,7 @@
                     <div class="mt-4 flex justify-between">
                         <div>
                             <h3 class="text-sm text-gray-700">
-                                <a href="product.html" onclick="localStorage.setItem('currentProduct', 1)">
+                                <a href="product.html">
                                     <span aria-hidden="true" class="absolute inset-0"></span>
                                     Casual T-Shirt
                                 </a>
@@ -214,7 +213,7 @@
                     <div class="mt-4 flex justify-between">
                         <div>
                             <h3 class="text-sm text-gray-700">
-                                <a href="product.html" onclick="localStorage.setItem('currentProduct', 2)">
+                                <a href="product.html">
                                     <span aria-hidden="true" class="absolute inset-0"></span>
                                     Winter Jacket
                                 </a>
@@ -233,7 +232,7 @@
                     <div class="mt-4 flex justify-between">
                         <div>
                             <h3 class="text-sm text-gray-700">
-                                <a href="product.html" onclick="localStorage.setItem('currentProduct', 3)">
+                                <a href="product.html">
                                     <span aria-hidden="true" class="absolute inset-0"></span>
                                     Formal Dress
                                 </a>
@@ -298,58 +297,6 @@
         btn.addEventListener('click', () => {
             menu.classList.toggle('hidden');
         });
-
-        // Initialize data and cart count
-        document.addEventListener('DOMContentLoaded', function() {
-            // Initialize cart if it doesn't exist
-            if (!localStorage.getItem('cart')) {
-                localStorage.setItem('cart', JSON.stringify([]));
-            }
-            
-            // Initialize products data if it doesn't exist
-            if (!localStorage.getItem('products')) {
-                const products = [
-                    {
-                        id: 1,
-                        name: "Designer Jeans",
-                        price: 1200,
-                        size: "32",
-                        image: "https://via.placeholder.com/300x400"
-                    },
-                    {
-                        id: 2,
-                        name: "Casual T-Shirt",
-                        price: 500,
-                        size: "L",
-                        image: "https://via.placeholder.com/300x400"
-                    },
-                    {
-                        id: 3,
-                        name: "Winter Jacket",
-                        price: 2500,
-                        size: "XL",
-                        image: "https://via.placeholder.com/300x400"
-                    },
-                    {
-                        id: 4,
-                        name: "Formal Dress",
-                        price: 1800,
-                        size: "M",
-                        image: "https://via.placeholder.com/300x400"
-                    }
-                ];
-                localStorage.setItem('products', JSON.stringify(products));
-            }
-            
-            // Update cart count
-            updateCartCount();
-        });
-
-        function updateCartCount() {
-            const cart = JSON.parse(localStorage.getItem('cart')) || [];
-            const count = cart.reduce((total, item) => total + item.quantity, 0);
-            document.getElementById('cart-count').textContent = count > 0 ? count : '';
-        }
     </script>
 </body>
 </html>
