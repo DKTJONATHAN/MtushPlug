@@ -1,23 +1,7 @@
-[
-    {
-        "id": 1,
-        "name": "Designer Jeans",
-        "price": 1200,
-        "size": "32",
-        "image": "https://images.unsplash.com/photo-1541099649105-f69ad21f3246"
-    },
-    {
-        "id": 2,
-        "name": "Casual T-Shirt",
-        "price": 500,
-        "size": "L",
-        "image": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab"
-    },
-    {
-        "id": 5,
-        "name": "Denim Shorts",
-        "price": 800,
-        "size": "M",
-        "image": "https://images.unsplash.com/photo-1604176354204-9268737828e4"
-    }
-]
+{
+  "id": "prod-003",
+  "name": "Denim Jacket",
+  "price": 1500,
+  "image": "jacket.jpg",
+  "status": "available"
+}
